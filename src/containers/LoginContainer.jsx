@@ -7,7 +7,7 @@ const LoginContainer = ({ email, password, onEmailChange, onPasswordChange, onSu
       className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-sm"
     >
       <h2 className="text-2xl font-bold text-center mb-6 text-indigo-700">
-        Welcome Back
+        Welcome Bac
       </h2>
 
       {/* Email */}
