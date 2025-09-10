@@ -6,8 +6,11 @@ const LoginContainer = ({ email, password, onEmailChange, onPasswordChange, onSu
       onSubmit={onSubmit}
       className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-sm"
     >
-      <h2 className="text-2xl font-bold text-center mb-6 text-indigo-700">Welcome Back</h2>
+      <h2 className="text-2xl font-bold text-center mb-6 text-indigo-700">
+        Welcome Back
+      </h2>
 
+      {/* Email */}
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-medium mb-2">
           Email
@@ -22,6 +25,7 @@ const LoginContainer = ({ email, password, onEmailChange, onPasswordChange, onSu
         />
       </div>
 
+      {/* Password */}
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-medium mb-2">
           Password
@@ -36,6 +40,7 @@ const LoginContainer = ({ email, password, onEmailChange, onPasswordChange, onSu
         />
       </div>
 
+      {/* Submit */}
       <button
         type="submit"
         className="w-full bg-indigo-600 text-white font-bold py-2 rounded hover:bg-indigo-700 transition"

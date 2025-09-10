@@ -1,6 +1,5 @@
-// import "./App.css";
+import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AppLayout from "./layouts/AppLayout";
 import Login from "./pages/Login/Login";
@@ -39,7 +38,7 @@ function App() {
           path: "/refferDashboard",
           element: (
             <ProtectedRouter>
-              <ProviderDashboard />
+              <RefferDashboard />
             </ProtectedRouter>
           ),
         },
