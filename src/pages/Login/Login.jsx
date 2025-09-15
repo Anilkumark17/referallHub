@@ -15,8 +15,8 @@ const Login = () => {
     },
     onSuccess: ({ role }) => {
       const routeMap = {
-        seeker: "/seekerDashboard",
-        referrer: "/referrerDashboard",
+        seeker: "/seeker-dashboard",
+        referrer: "/referrer-dashboard",
       };
       navigate(routeMap[role] || "/");
     },
