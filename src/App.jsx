@@ -20,12 +20,10 @@ function App() {
           path: "/login",
           element: <Login />,
         },
-
         {
           path: "/signup",
           element: <SignUp />,
         },
-
         {
           path: "/seekerDashboard",
           element: (
@@ -35,7 +33,7 @@ function App() {
           ),
         },
         {
-          path: "/refferDashboard",
+          path: "/reffererDashboard",
           element: (
             <ProtectedRouter>
               <RefferDashboard />
