@@ -27,7 +27,7 @@ function App() {
         },
 
         {
-          path: "/providerDashboard",
+          path: "/seekerDashboard",
           element: (
             <ProtectedRouter>
               <ProviderDashboard />

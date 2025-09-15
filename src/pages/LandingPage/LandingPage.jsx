@@ -45,8 +45,7 @@ const LandingPage = () => {
                 Join as Referral Provider
               </a>
             </div>
-            {/* Hamburger */}
-            <div className="md:hidden">
+              <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-indigo-700 focus:outline-none"
@@ -132,7 +131,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className="px-6 py-20 bg-indigo-600 text-white text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to simplify job referrals?</h2>
         <p className="mb-8 text-lg">

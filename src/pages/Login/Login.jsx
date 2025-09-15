@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { db } from "../../db/db"; 
 import { LoginApi } from "../../api/AuthAPi";
-import LoginContainer from "../../containers/LoginContainer";
+import LoginContainer from "../../containers/LoginContainer"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,24 +11,12 @@ const Login = () => {
 
   const loginMutation = useMutation({
     mutationFn: async ({ email, password }) => {
-  
-      const { data, error } = await db
-        .from("user_profiles")
-        .select("role")
-        .eq("email", email)
-        .single();
-
-      if (error || !data) throw new Error("User not found or role fetch failed.");
-
-      //  Authenticate user
-      const response = await LoginApi(email, password);
-
-      return { role: data.role, response };
+      return await LoginApi(email, password);
     },
     onSuccess: ({ role }) => {
       const routeMap = {
-        seeker: "/providerDashboard",
-        referrer: "/refferDashboard",
+        seeker: "/seekerDashboard",
+        referrer: "/referrerDashboard",
       };
       navigate(routeMap[role] || "/");
     },

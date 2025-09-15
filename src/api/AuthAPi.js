@@ -1,12 +1,12 @@
-import { db } from "../db/db"; // Supabase client
+import axios from "axios";
 
-// API for login via Supabase
+
 export const LoginApi = async (email, password) => {
-  const { data, error } = await db.auth.signInWithPassword({
+  const response = await axios.post("http://localhost:5000/api/auth/login", {
     email,
     password,
   });
-
-  if (error) throw new Error(error.message);
-  return data;
+  return response.data;
 };
+
+
