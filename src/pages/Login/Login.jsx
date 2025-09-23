@@ -14,7 +14,6 @@ const Login = () => {
       return await LoginApi(email, password);
     },
     onSuccess: () => {
-      // Navigate to dashboard directly after successful login
       navigate("/dashboard");
     },
     onError: (error) => {

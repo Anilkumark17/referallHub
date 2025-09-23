@@ -1,7 +1,5 @@
-// src/App.jsx
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import AppLayout from "./layouts/AppLayout";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Login from "./pages/Login/Login";

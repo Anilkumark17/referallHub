@@ -1,6 +1,12 @@
 import React from "react";
 
-const LoginContainer = ({ email, password, onEmailChange, onPasswordChange, onSubmit }) => {
+const LoginContainer = ({
+  email,
+  password,
+  onEmailChange,
+  onPasswordChange,
+  onSubmit,
+}) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <form
@@ -10,8 +16,6 @@ const LoginContainer = ({ email, password, onEmailChange, onPasswordChange, onSu
         <h2 className="text-2xl font-bold text-center mb-6 text-green-600">
           Welcome back to TakeCare
         </h2>
-
-        {/* Email */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-medium mb-2">
             Email
@@ -26,7 +30,6 @@ const LoginContainer = ({ email, password, onEmailChange, onPasswordChange, onSu
           />
         </div>
 
-        {/* Password */}
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-medium mb-2">
             Password

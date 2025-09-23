@@ -35,7 +35,7 @@ const SignupContainer = () => {
         const { id: authUserId, email: authEmail } = user;
 
         // Step 2: Insert into user_profiles table
-        const { error: insertError } = await db.from("user_profiles").insert([
+        const { error: insertError } = await db.from("profiles").insert([
           {
             id: authUserId,
             email: authEmail,
