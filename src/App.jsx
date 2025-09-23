@@ -6,9 +6,8 @@ import AppLayout from "./layouts/AppLayout";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
-import SeekerDashboard from "./pages/provider_dashboard/SeekerDashboard";
 import ProtectedRouter from "./routes/ProtectedRouter";
-import ReferrerDashboard from "./pages/reffer_dashboard/ReferrerDashboard";
+import Dashboard from "./pages/Dashboard.jsx/Dashboard";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,18 +18,10 @@ function App() {
         { path: "/login", element: <Login /> },
         { path: "/signup", element: <SignUp /> },
         {
-          path: "/seeker-dashboard",
+          path: "/dashboard",
           element: (
             <ProtectedRouter>
-              <SeekerDashboard />
-            </ProtectedRouter>
-          ),
-        },
-        {
-          path: "/referrer-dashboard",
-          element: (
-            <ProtectedRouter>
-              <ReferrerDashboard />
+              <Dashboard />
             </ProtectedRouter>
           ),
         },

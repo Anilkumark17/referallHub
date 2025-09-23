@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { LoginApi } from "../../api/AuthAPi";
-import LoginContainer from "../../containers/LoginContainer"
+import LoginContainer from "../../containers/LoginContainer";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,12 +13,9 @@ const Login = () => {
     mutationFn: async ({ email, password }) => {
       return await LoginApi(email, password);
     },
-    onSuccess: ({ role }) => {
-      const routeMap = {
-        seeker: "/seeker-dashboard",
-        referrer: "/referrer-dashboard",
-      };
-      navigate(routeMap[role] || "/");
+    onSuccess: () => {
+      // Navigate to dashboard directly after successful login
+      navigate("/dashboard");
     },
     onError: (error) => {
       console.error("Login failed:", error.message);

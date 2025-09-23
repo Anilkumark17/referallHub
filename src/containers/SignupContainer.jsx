@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { db } from "../db/db"; 
+import { db } from "../db/db";
 
 const SignupContainer = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("referrer");
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
@@ -35,14 +34,13 @@ const SignupContainer = () => {
       if (user) {
         const { id: authUserId, email: authEmail } = user;
 
-        // Step 2: Insert into users table
+        // Step 2: Insert into user_profiles table
         const { error: insertError } = await db.from("user_profiles").insert([
           {
             id: authUserId,
             email: authEmail,
             full_name: fullName,
-            password:password, 
-            role:role,
+            password: password,
           },
         ]);
 
@@ -62,9 +60,11 @@ const SignupContainer = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4 text-center">Sign Up</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center text-green-600">
+          Sign Up to TakeCare
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -72,7 +72,7 @@ const SignupContainer = () => {
             placeholder="Full Name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
             required
           />
           <input
@@ -80,7 +80,7 @@ const SignupContainer = () => {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
             required
           />
           <input
@@ -88,7 +88,7 @@ const SignupContainer = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
             required
           />
           <input
@@ -96,22 +96,13 @@ const SignupContainer = () => {
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
             required
           />
 
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
-          >
-            <option value="referrer">Referral Provider</option>
-            <option value="seeker">Referral Seeker</option>
-          </select>
-
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition"
+            className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition"
           >
             Sign Up
           </button>
@@ -119,7 +110,7 @@ const SignupContainer = () => {
 
         {message && (
           <p
-            className={`mt-4 text-center ${
+            className={`mt-4 text-center font-medium ${
               message.includes("successful")
                 ? "text-green-600"
                 : "text-red-500"
